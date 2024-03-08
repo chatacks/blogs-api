@@ -19,7 +19,27 @@ const createUser = async (userFields) => {
   return { status: 'CREATED', data: user.id };
 };
 
+const getUserById = async (userId) => {
+  const user = await User.findByPk(userId);
+
+  if (user === null) {
+    return { status: 'NOT_FOUND', data: { message: 'user not found' } };
+  }
+
+  return user;
+};
+
+const getAllUsers = async () => {
+  const allUsers = await User.findAll({
+    attributes: { exclude: ['password'] },
+  });
+
+  return { status: 'SUCCESSFUL', data: allUsers };
+};
+
 module.exports = {
   getByEmail,
   createUser,
+  getUserById,
+  getAllUsers,
 };

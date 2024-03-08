@@ -8,7 +8,6 @@ const createUser = async (req, res) => {
   try {
     const userFields = req.body;
     const { status, data } = await userService.createUser(userFields);
-    console.log(data);
 
     const jwtConfig = {
       expiresIn: '7d',
@@ -28,6 +27,17 @@ const createUser = async (req, res) => {
   }
 };
 
+const getAllUsers = async (_req, res) => {
+  try {
+    const { status, data } = await userService.getAllUsers();
+    res.status(mapStatusHTTP(status)).json(data);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: error.sqlMessage });
+  }
+};
+
 module.exports = {
   createUser,
+  getAllUsers,
 };
