@@ -20,13 +20,15 @@ const createUser = async (userFields) => {
 };
 
 const getUserById = async (userId) => {
-  const user = await User.findByPk(userId);
+  const user = await User.findByPk(userId, {
+    attributes: { exclude: ['password'] },
+  });
 
   if (user === null) {
-    return { status: 'NOT_FOUND', data: { message: 'user not found' } };
+    return { status: 'NOT_FOUND', data: { message: 'User does not exist' } };
   }
 
-  return user;
+  return { status: 'SUCCESSFUL', data: user };
 };
 
 const getAllUsers = async () => {
