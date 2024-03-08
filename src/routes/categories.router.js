@@ -3,6 +3,7 @@ const validateToken = require('../auth/validateToken');
 const { categoryController } = require('../controller');
 
 categoriesRouter
-  .post('/', validateToken, categoryController.insertCategory);
+  .post('/', validateToken, categoryController.insertCategory)
+  .get('/', validateToken, categoryController.getAllCategories);
 
 module.exports = categoriesRouter;

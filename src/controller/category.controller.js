@@ -12,6 +12,17 @@ const insertCategory = async (req, res) => {
   }
 };
 
+const getAllCategories = async (_req, res) => {
+  try {
+    const { status, data } = await categoryService.getAllCategories();
+    res.status(mapStatusHTTP(status)).json(data);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: error.sqlMessage });
+  }
+};
+
 module.exports = {
   insertCategory,
+  getAllCategories,
 };

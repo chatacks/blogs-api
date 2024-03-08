@@ -12,6 +12,13 @@ const insertCategory = async (categoryFields) => {
   return { status: 'CREATED', data: newCategory.dataValues };
 };
 
+const getAllCategories = async () => {
+  const allCategories = await Category.findAll();
+
+  return { status: 'SUCCESSFUL', data: allCategories };
+};
+
 module.exports = {
   insertCategory,
+  getAllCategories,
 };
