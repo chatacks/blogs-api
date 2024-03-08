@@ -3,7 +3,7 @@ const { userService } = require('../services');
 
 const secret = process.env.JWT_SECRET || 'chatack';
 
-const loginController = async (req, res) => {
+const signIn = async (req, res) => {
   try {
     const { email } = req.body;
     const user = await userService.getByEmail(email);
@@ -13,7 +13,7 @@ const loginController = async (req, res) => {
       algorithm: 'HS256',
     };
 
-    const token = jwt.sign({ data: { userId: user.id } }, secret, jwtConfig);
+    const token = jwt.sign({ data: { userId: user.dataValues.id } }, secret, jwtConfig);
 
     res.status(200).json({ token });
   } catch (error) {
@@ -23,5 +23,5 @@ const loginController = async (req, res) => {
 };
 
 module.exports = {
-  loginController,
+  signIn,
 };
