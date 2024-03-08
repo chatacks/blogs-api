@@ -7,6 +7,11 @@ const insertValidationSchema = Joi.object({
   image: Joi.string(),
 });
 
+const nameCategoryValdiation = Joi.object({
+  name: Joi.string().required(),
+});
+
 module.exports = {
   insertValidationSchema,
+  nameCategoryValdiation,
 };

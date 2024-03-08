@@ -14,9 +14,9 @@ const createUser = async (userFields) => {
     return { status: 'CONFLICT', data: { message: 'User already registered' } }; 
   }
 
-  const user = await User.create(userFields);
+  const newUser = await User.create(userFields);
 
-  return { status: 'CREATED', data: user.id };
+  return { status: 'CREATED', data: newUser.id };
 };
 
 const getUserById = async (userId) => {
