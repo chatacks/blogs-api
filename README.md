@@ -6,6 +6,10 @@ Esta é uma aplicação de gerenciamento de conteúdo para blogs desenvolvida em
 
 O Blog Content Manager permite criar e gerenciar posts de blog, onde cada post está associado a um usuário e pode ser categorizado em uma ou mais categorias. A aplicação também lida com a autenticação de usuários, garantindo que apenas usuários autenticados possam criar, editar ou excluir posts.
 
+## Estrutura do Projeto
+
+Este projeto foi desenvolvido utilizando a arquitetura de camadas **MSC (Model, Service, Controller)**, visando uma melhor organização e separação de responsabilidades. A camada **Model** cuida da interação com o banco de dados, a camada **Service** implementa a lógica de negócios, e a camada **Controller** é responsável por gerenciar as requisições e respostas da API.
+
 ## Funcionalidades
 
 - **CRUD de Posts**: Operações de criação, leitura, atualização e exclusão de posts.
