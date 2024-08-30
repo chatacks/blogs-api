@@ -27,8 +27,8 @@ Este projeto foi desenvolvido utilizando a arquitetura de camadas **MSC (Model, 
 - **Validação**: Joi
 - **Autenticação**: JSON Web Token (JWT)
 - **Registro de Logs**: Morgan
-- **Testes**: Mocha, Chai, Sinon, Jest, Supertest
-- **Ferramentas de Desenvolvimento**: Nodemon, ESLint, NYC, Sequelize CLI, ShellJS
+- **Testes**: Mocha, Chai, Sinon, Jest
+- **Ferramentas de Desenvolvimento**: Nodemon, ESLint, Sequelize CLI
 
 ## Instalação
 
